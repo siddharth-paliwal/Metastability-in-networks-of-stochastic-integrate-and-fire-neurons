@@ -6,7 +6,7 @@ Each file in the folder 'Figures' named 'Figure *.ipynb' is a jupyter file that 
 
 The simulations can be run by running 'main.py' in the 'Code' folder. Be sure to change parameters associated with the simulation being run in 'parameters.py'. The details for what each file does is given below:
 
-main.py: The main file to run simulations for different parameter sets as required. The parameters need to be changed in parameters.py or different 'vars' defined in the function that lets one loop through the range to parameters to be simulated.
+main.py: The main file to run simulations for different parameter sets as required. Simulations may be run for pre-defined parameter sets by uncommenting the variables 'var1' or 'var2', etc., listed in main.py, or by specifying parameters in parameters.py. The default code in this repository draws parameters from parameters.py.
 
 parameters.py: Contains the parameters to be used for simulations.
 
