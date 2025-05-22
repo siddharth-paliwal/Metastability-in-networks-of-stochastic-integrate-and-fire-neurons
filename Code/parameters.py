@@ -1,0 +1,49 @@
+import numpy as np
+
+class network_params:
+    def __init__(self, ):
+        self.N = 100  # Number of neurons
+        self.tauE = 1  # Time constant
+        self.tauI = 1  # Time constant for inhibitory population
+        self.gain = 1.0  # Gain of threshold-linear input-output function
+        self.trans = 0.  # Transient period
+        self.tstop = 100000.  # Total simulation time
+        self.stim = 0.0
+        self.dt = .01  # Simulation time-step
+        self.maxSpikes = 5000 * self.N * self.tstop / 1000  # 500 Hz neuron
+        self.Nt = int(self.tstop / self.dt)  # Number of simulation time-points
+        self.Etr = 5  # Refractory period for excitatory neurons
+        self.Itr = 5  # Refractory period for inhibitory neurons
+        self.n_runs = 1  # Number of simulations
+        self.nE = 0.5  # Fraction of excitatory neurons
+        self.nI = 1.0 - self.nE  # Fraction of inhibotory neurons
+        self.NE = int(self.nE * self.N)  # Number of excitatory neurons
+        self.clusterSize = int(self.N / 10)  # Size of each Exh + Inh Cluster
+        self.numClusters = np.maximum(int(self.N / self.clusterSize), 1)  # Number of clusters
+        self.NI = int(self.nI * self.N)  # Number of inhibitory neurons
+        self.EClusterSize = int(self.NE / self.numClusters)  # Size of excitatory cluster
+        self.IClusterSize = int(self.NI / self.numClusters)  # Size of inhibitory clusters
+        self.t_EE = 1  # time constant from excitatory to excitatory/inhibitory synapses
+        self.t_II = 1  # time constant from inhibitory to inhibitory/excitatory synapses
+        self.pEE = 1.0  # Probability of connections from excitatory to excitatory neurons
+        self.pEI = 1.0  # Probability of connections for other neurons
+        self.pIE = 1.0
+        self.pII = 1.0
+        self.IeE = 1.07  # Mean value of external current for the excitatory population
+        self.IeI = 1.07  # Mean value of external current for the inhibitory population
+        self.IeE_var = 0.0  # Variance of external current for the excitatory population
+        self.IeI_var = 0.0  # Variance of external current for the inhibitory population
+        self.Vthres = 1.0
+        self.Vreset = 0
+        self.R = 0.25
+        self.wEE = 4.0
+        self.scale = 0.25
+        self.wIE = self.wEE
+        self.wEI = self.scale * self.wEE
+        self.wII = self.scale * self.wEE
+        self.WRatioE = 1.0  # Ratio of Win / Wout(synaptic weight of within group to neurons outside the group)
+        self.WRatioI = 1 + self.R * (self.WRatioE - 1)
+        self.WRatio = 2.1
+        self.REE = 1.0
+        self.power = 2.0
+        self.simPhi = 0.0
