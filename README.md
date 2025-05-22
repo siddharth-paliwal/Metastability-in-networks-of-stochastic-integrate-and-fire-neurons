@@ -1,0 +1,1 @@
+## Metastability in networks of stochastic integrate-and-fire neurons
